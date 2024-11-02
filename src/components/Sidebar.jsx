@@ -1,5 +1,6 @@
-import { ChevronLast, ChevronFirst } from "lucide-react"
+import { ChevronLast, ChevronFirst, Menu } from "lucide-react"
 import { useContext, createContext, useState } from "react"
+import { Link } from "react-router-dom";
 
 const SidebarContext = createContext()
 
@@ -21,7 +22,7 @@ export default function Sidebar({ children }) {
             onClick={() => setExpanded((curr) => !curr)}
             className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100"
           >
-            {expanded ? <ChevronFirst /> : <ChevronLast />}
+            {expanded ? <Menu /> : <Menu />}
           </button>
         </div>
 
@@ -29,56 +30,47 @@ export default function Sidebar({ children }) {
           <ul className="flex-1 px-3">{children}</ul>
         </SidebarContext.Provider>
 
-        
       </nav>
     </aside>
   )
 }
 
-export function SidebarItem({ icon, text, active, alert }) {
+export function SidebarItem({ icon, text, to, active, alert }) {
   const { expanded } = useContext(SidebarContext)
   
   return (
     <li
-      className={`
-        relative flex items-center py-2 px-3 my-1
+      className={`relative flex items-center py-2 px-3 my-1
         font-medium rounded-md cursor-pointer
-        transition-colors group
-        ${
-          active
-            ? "bg-green-600 text-white"
-            : "hover:bg-indigo-50 text-gray-600"
-        }
-    `}
+        transition-all group
+        ${active ? "text-black-200" : "text-black-600 hover:bg-green-500 hover:text-gray-50"}
+      `}
     >
-      {icon}
-      <span
-        className={`overflow-hidden transition-all ${
-          expanded ? "w-52 ml-3" : "w-0"
-        }`}
-      >
-        {text}
-      </span>
-      {alert && (
-        <div
-          className={`absolute right-2 w-2 h-2 rounded bg-green-400 ${
-            expanded ? "" : "top-2"
-          }`}
-        />
-      )}
-
+      <Link to={to} className="flex items-center">
+        {icon}
+        <span 
+          className={`overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"}`}
+        >
+          {text}
+        </span>
+        {alert && (
+          <div
+            className={`absolute right-2 w-2 h-2 rounded bg-green-400 ${expanded ? "" : "top-2"}`}
+          />
+        )}
+      </Link>
+      
       {!expanded && (
         <div
-          className={`
-          absolute left-full rounded-md px-2 py-1 ml-6
-          bg-green-100 text-green-800 text-sm
-          invisible opacity-20 -translate-x-3 transition-all
-          group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
-      `}
+          className={`absolute left-full rounded-md px-2 py-1 ml-6
+            bg-green-100 text-green-800 text-sm
+            invisible opacity-20 -translate-x-3 transition-all
+            group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
+          `}
         >
           {text}
         </div>
       )}
     </li>
-  )
+  );
 }
