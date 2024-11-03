@@ -7,7 +7,7 @@ export default function RightSidebar({ right }) {
       {/* Profile Section */}
       <div className="flex items-center mb-8">
         <img
-          src="https://via.placeholder.com/50" // Replace with actual image source
+          src="https://e7.pngegg.com/pngimages/980/304/png-clipart-computer-icons-user-profile-avatar-heroes-silhouette.png" // Replace with actual image source
           alt="Profile"
           className="w-12 h-12 rounded-full mr-3"
         />
