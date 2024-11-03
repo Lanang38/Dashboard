@@ -1,5 +1,5 @@
 import React from "react";
-import { ChevronLast, ChevronFirst } from "lucide-react";
+import { ChevronFirst, Bell, Trash, Plus } from "lucide-react";
 
 export default function RightSidebar({ right }) {
   return (
@@ -20,9 +20,9 @@ export default function RightSidebar({ right }) {
       {/* "Segera Datang" Section */}
       <div className="mb-6">
         <h2 className="text-lg font-semibold mb-2">Segera Datang</h2>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 mb-2">
           <button className="p-1.5 rounded-lg bg-gray-200 hover:bg-green-600 group">
-            <ChevronFirst className="group-hover:text-white" />
+            <Plus className="group-hover:text-white" />
           </button>
           <input
             type="text"
@@ -31,49 +31,70 @@ export default function RightSidebar({ right }) {
           />
         </div>
 
-        {/* Perbaiki biar sesuai dengan desain
-        <div className="flex items-center space-x-2">
-            <button className="flex items-center text-sm text-gray-600">
-            ➕ Fitur Baru
+        {/* "New Fitur" and "Fitur Baru" Items */}
+        <div className="space-y-2">
+          <div className="flex justify-between items-center p-3 rounded-lg bg-orange-100">
+            <div className="flex items-center">
+              <Bell className="text-orange-500 mr-2" />
+              <span className="font-medium text-gray-800">New Fitur</span>
+            </div>
+            <button className="text-gray-600 hover:text-gray-800">
+              <Trash />
             </button>
-                <button className="flex items-center text-sm text-gray-600">
-                🗑️ Fitur
-                </button>
-        </div> 
-            */}
-
+          </div>
+          <div className="flex justify-between items-center p-3 rounded-lg bg-orange-100">
+            <div className="flex items-center">
+              <Bell className="text-orange-500 mr-2" />
+              <span className="font-medium text-gray-800">Fitur Baru</span>
+            </div>
+            <button className="text-gray-600 hover:text-gray-800">
+              <Trash />
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Sticky Notes Section */}
+      {/* "Sticky Notes" Section */}
       <div className="mb-6">
         <h2 className="text-lg font-semibold mb-2">Sticky Notes</h2>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 mb-4">
           <button className="p-1.5 rounded-lg bg-gray-200 hover:bg-green-600 group">
-            <ChevronFirst className="group-hover:text-white" />
+            <Plus className="group-hover:text-white" />
           </button>
           <input
             type="text"
             placeholder="Masukkan Judul"
             className="flex-grow p-2 border border-gray-300 rounded text-sm"
           />
-        
-          
         </div>
-        {/* Perbaiki biar sama kaya desain (satu tone warna juga boleh) kalau bisa jangan dijadikan button yang tidak bisa di klil, tetapi kasi buton delete di sampingnya
-        <button className="w-full py-2 mb-2 text-white bg-green-500 rounded text-sm">
-        Tambah Modul Baru
-        </button>
-        <button className="w-full py-2 mb-2 text-white bg-orange-500 rounded text-sm">
-         Tambah Modul Baru
-        </button>
-        <button className="w-full py-2 mb-2 text-white bg-red-500 rounded text-sm">
-        Tambah Modul Baru
-        </button>
-        <button className="w-full py-2 text-white bg-pink-500 rounded text-sm">
-        Tambah Modul Baru
-        </button>
 
-        */}
+        {/* Sticky Note Items */}
+        <div className="space-y-2">
+          <div className="flex justify-between items-center p-3 rounded-lg bg-green-100">
+            <span className="text-gray-800">Tambah Modul Baru</span>
+            <button className="text-gray-600 hover:text-gray-800">
+              <Trash />
+            </button>
+          </div>
+          <div className="flex justify-between items-center p-3 rounded-lg bg-orange-100">
+            <span className="text-gray-800">Tambah Modul Baru</span>
+            <button className="text-gray-600 hover:text-gray-800">
+              <Trash />
+            </button>
+          </div>
+          <div className="flex justify-between items-center p-3 rounded-lg bg-pink-100">
+            <span className="text-gray-800">Tambah Modul Baru</span>
+            <button className="text-gray-600 hover:text-gray-800">
+              <Trash />
+            </button>
+          </div>
+          <div className="flex justify-between items-center p-3 rounded-lg bg-red-100">
+            <span className="text-gray-800">Tambah Modul Baru</span>
+            <button className="text-gray-600 hover:text-gray-800">
+              <Trash />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
